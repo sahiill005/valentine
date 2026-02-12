@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Gunn ❤️</title>
+
+<style>
+body{
+ text-align:center;
+ font-family:Arial;
+ background:linear-gradient(#ffd6e0,#ffe6f2);
+ overflow:hidden;
+}
+
+.page{display:none}
+.active{display:block}
+
+button{
+ padding:15px 30px;
+ font-size:20px;
+ margin:20px;
+ border:none;
+ border-radius:12px;
+ background:#ff4d6d;
+ color:white;
+ cursor:pointer;
+}
+
+#noBtn{position:absolute}
+
+.biglove{
+ font-size:70px;
+ color:#ff1e56;
+ font-weight:bold;
+ text-shadow:0 0 20px pink;
+}
+
+.heart{
+ position:fixed;
+ top:-10px;
+ color:red;
+ animation:fall linear infinite;
+}
+
+@keyframes fall{
+ to{transform:translateY(110vh);}
+}
+</style>
+
+<script>
+function showPage(n){
+ var pages=document.getElementsByClassName("page");
+ for(var i=0;i<pages.length;i++) pages[i].classList.remove("active");
+ pages[n].classList.add("active");
+ document.getElementById("bgmusic").play();
+}
+
+function moveNo(){
+ var x=Math.random()*window.innerWidth;
+ var y=Math.random()*window.innerHeight;
+ document.getElementById("noBtn").style.left=x+"px";
+ document.getElementById("noBtn").style.top=y+"px";
+}
+
+function hearts(){
+ setInterval(function(){
+  var h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(Math.random()*3+2)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),5000);
+ },300);
+}
+
+window.onload=hearts;
+</script>
+</head>
+
+<body>
+
+<audio id="bgmusic" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2021/11/25/audio_6d1c3a3a9c.mp3?filename=romantic-ambient-piano-11393.mp3" type="audio/mpeg">
+</audio>
+
+<div class="page active">
+<h1 id="typing"></h1>
+<button onclick="showPage(1)">Open Surprise ❤️</button>
+</div>
+
+<script>
+var txt="Dear Gunn (My Shonu) ❤️";
+var i=0;
+function typeWriter(){
+ if(i<txt.length){
+  document.getElementById("typing").innerHTML+=txt.charAt(i);
+  i++;
+  setTimeout(typeWriter,80);
+ }
+}
+typeWriter();
+</script>
+
+<div class="page">
+<h1>Will you be my Valentine? ❤️</h1>
+<button onclick="showPage(2)">Yes 💖</button>
+<button id="noBtn" onmouseover="moveNo()">No 😜</button>
+</div>
+
+<div class="page">
+<h2>mera pyara Shonu he tu, ldti bhot he pr jese bhi he meri he  
+or hmesha meri rhegi ❤️ I love youuu</h2>
+<button onclick="showPage(3)">Next</button>
+</div>
+
+<div class="page">
+<h2>idk how to express pr tujhe dekh kr express krne lgta bhi hu  
+to bhul jata hu, u r so cute meri jaan, mere liye mera sb kuch he tu  
+or mujhe tujhe kbhi nhi khona ❤️</h2>
+<button onclick="showPage(4)">Next</button>
+</div>
+
+<div class="page">
+<h2>I lovee you so so so so so so muchhhhhh ❤️  
+duniya me bhot hongi Gunn but mujhe sirf IP extension Delhi wali chaiye</h2>
+<button onclick="showPage(5)">Next</button>
+</div>
+
+<div class="page">
+<h1 class="biglove">I LOVE YOU ❤️</h1>
+</div>
+
+</body>
+</html>
