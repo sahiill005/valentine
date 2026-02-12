@@ -27,6 +27,13 @@ button{
 
 #noBtn{position:absolute}
 
+img{
+ width:260px;
+ border-radius:20px;
+ margin:10px;
+ box-shadow:0 0 20px pink;
+}
+
 .biglove{
  font-size:70px;
  color:#ff1e56;
@@ -43,6 +50,17 @@ button{
 
 @keyframes fall{
  to{transform:translateY(110vh);}
+}
+
+.fallimg{
+ position:fixed;
+ top:-200px;
+ width:120px;
+ animation:fall2 linear forwards;
+}
+
+@keyframes fall2{
+ to{transform:translateY(120vh);}
 }
 </style>
 
@@ -71,6 +89,18 @@ function hearts(){
   document.body.appendChild(h);
   setTimeout(()=>h.remove(),5000);
  },300);
+}
+
+function startFall(){
+ let imgs=["photo1.jpg","photo2.jpg","photo3.jpg"];
+ for(let i=0;i<25;i++){
+  let el=document.createElement("img");
+  el.src=imgs[Math.floor(Math.random()*3)];
+  el.className="fallimg";
+  el.style.left=Math.random()*100+"vw";
+  el.style.animationDuration=(Math.random()*3+3)+"s";
+  document.body.appendChild(el);
+ }
 }
 
 window.onload=hearts;
@@ -108,12 +138,14 @@ typeWriter();
 </div>
 
 <div class="page">
+<img src="photo1.jpg">
 <h2>mera pyara Shonu he tu, ldti bhot he pr jese bhi he meri he  
 or hmesha meri rhegi ❤️ I love youuu</h2>
 <button onclick="showPage(3)">Next</button>
 </div>
 
 <div class="page">
+<img src="photo2.jpg">
 <h2>idk how to express pr tujhe dekh kr express krne lgta bhi hu  
 to bhul jata hu, u r so cute meri jaan, mere liye mera sb kuch he tu  
 or mujhe tujhe kbhi nhi khona ❤️</h2>
@@ -121,9 +153,10 @@ or mujhe tujhe kbhi nhi khona ❤️</h2>
 </div>
 
 <div class="page">
+<img src="photo3.jpg">
 <h2>I lovee you so so so so so so muchhhhhh ❤️  
 duniya me bhot hongi Gunn but mujhe sirf IP extension Delhi wali chaiye</h2>
-<button onclick="showPage(5)">Next</button>
+<button onclick="showPage(5); startFall()">Next</button>
 </div>
 
 <div class="page">
@@ -132,3 +165,4 @@ duniya me bhot hongi Gunn but mujhe sirf IP extension Delhi wali chaiye</h2>
 
 </body>
 </html>
+
